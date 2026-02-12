@@ -1,10 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <title>Stats</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  </head>
-  <body>
-    <h1>Check the browser console :)</h1>
-  </body>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        .output { margin-top: 15px; font-weight: bold; color: #333; }
+    </style>
+</head>
+<body>
+  <h1>Check the browser console :)</h1>
+    <h3>Enter numbers (comma separated)</h3>
+    <input type="text" id="nums" placeholder="10, 20, 30">
+    <button id="calcBtn">Calculate</button>
+
+    <div class="output" id="result"></div>
+
+    <script src="index.js"></script>
+</body>
 </html>
