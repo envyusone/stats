@@ -4,17 +4,30 @@
     <title>Stats</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
-        body { font-family: sans-serif; padding: 20px; }
-        .output { margin-top: 15px; font-weight: bold; color: #333; }
+       body { font-family: system-ui; padding: 2rem; max-width: 500px; margin: auto; }
+        input { width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px; }
+        button { width: 100%; padding: 10px; background: #007bff; color: white; border: none; cursor: pointer; border-radius: 5px; }
+        .results { margin-top: 20px; background: #f8f9fa; padding: 1rem; border-radius: 5px; }
+        p { margin: 5px 0; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+        strong { color: #333; }
     </style>
 </head>
 <body>
   <h1>Check the browser console :)</h1>
-    <h3>Enter numbers (comma separated)</h3>
-    <input type="text" id="nums" placeholder="10, 20, 30">
-    <button id="calcBtn">Calculate</button>
+   <h2>Stats Calculator</h2>
+    <input type="text" id="userInput" placeholder="Enter numbers: 5, 12, 3, 8">
+    <button id="calcBtn">Calculate Results</button>
 
-    <div class="output" id="result"></div>
+    <div class="results">
+        <p><strong>Length:</strong> <span id="res-length">0</span></p>
+        <p><strong>Sum:</strong> <span id="res-sum">0</span></p>
+        <p><strong>Mean:</strong> <span id="res-mean">0</span></p>
+        <p><strong>Min:</strong> <span id="res-min">0</span></p>
+        <p><strong>Max:</strong> <span id="res-max">0</span></p>
+        <p><strong>Range:</strong> <span id="res-range">0</span></p>
+        <p><strong>Evens:</strong> <span id="res-evens">-</span></p>
+        <p><strong>Odds:</strong> <span id="res-odds">-</span></p>
+    </div>
 
     <script src="index.js"></script>
 </body>

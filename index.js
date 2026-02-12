@@ -1,71 +1,70 @@
 /**
- * @param {number[]} numbers an array of integers
- * @returns {number} the length of the array
+ * YOUR CORE FUNCTIONS
  */
 function getLength(numbers) {
   return numbers.length;
 }
 
-/**
- * @param {number[]} numbers an array of integers
- * @returns {number} the sum of the numbers
- */
 function getSum(numbers) {
   return numbers.reduce((acc, curr) => acc + curr, 0);
 }
 
-/**
- * @param {number[]} numbers an array of integers
- * @returns {number} the mean of the numbers
- */
 function getMean(numbers) {
   if (numbers.length === 0) return 0;
-  return getSum(numbers) / getLength(numbers) || 0;
+  return getSum(numbers) / getLength(numbers);
 }
 
-/**
- * @param {number[]} numbers an array of integers
- * @returns {number} the smallest of the numbers
- */
 function getMin(numbers) {
+  if (numbers.length === 0) return 0;
   return Math.min(...numbers);
 }
 
-
-/**
- * @param {number[]} numbers an array of integers
- * @returns {number} the largest of the numbers
- */
 function getMax(numbers) {
+  if (numbers.length === 0) return 0;
   return Math.max(...numbers);
 }
 
-
-/**
- * @param {number[]} numbers an array of integers
- * @returns {number} the range of the numbers (max - min)
- */
 function getRange(numbers) {
   if (numbers.length === 0) return 0;
-  return Math.max(...numbers) - Math.min(...numbers);
+  return getMax(numbers) - getMin(numbers);
 }
 
-
-/**
- * @param {number[]} numbers an array of integers
- * @returns {number[]} the even numbers in the array
- */
 function getEvens(numbers) {
   return numbers.filter(num => num % 2 === 0);
 }
 
-/**
- * @param {number[]} numbers an array of integers
- * @returns {number[]} the odd numbers in the array
- */
 function getOdds(numbers) {
   return numbers.filter(num => num % 2 !== 0);
 }
+
+/**
+ * CONNECTING TO THE HTML
+ */
+document.getElementById('calcBtn').addEventListener('click', () => {
+    const inputString = document.getElementById('userInput').value;
+    
+
+    const numbers = inputString.split(',')
+                               .map(n => n.trim())
+                               .filter(n => n !== "")
+                               .map(Number)
+                               .filter(n => !isNaN(n));
+
+    if (numbers.length === 0) {
+        alert("Please enter some numbers separated by commas.");
+        return;
+    }
+
+    document.getElementById('res-length').innerText = getLength(numbers);
+    document.getElementById('res-sum').innerText    = getSum(numbers);
+    document.getElementById('res-mean').innerText   = getMean(numbers).toFixed(2);
+    document.getElementById('res-min').innerText    = getMin(numbers);
+    document.getElementById('res-max').innerText    = getMax(numbers);
+    document.getElementById('res-range').innerText  = getRange(numbers);
+    document.getElementById('res-evens').innerText  = getEvens(numbers).join(', ') || "None";
+    document.getElementById('res-odds').innerText   = getOdds(numbers).join(', ') || "None";
+});
+
 
 // === READ BUT DO NOT EDIT THE CODE BELOW ===
 
